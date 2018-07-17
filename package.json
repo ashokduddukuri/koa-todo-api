@@ -1,0 +1,17 @@
+{
+  "name": "koa-todo-api",
+  "version": "1.0.0",
+  "description": "learning koa by making todo api",
+  "main": "app.js",
+  "author": "ashokduddukuri@gmail.com",
+  "license": "MIT",
+  "devDependencies": {
+    "chai-http": "^4.0.0"
+  },
+  "dependencies": {
+    "koa": "^2.5.2",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.2.4"
+  }
+}
