@@ -1,6 +1,6 @@
 **The App should be able to**
 > **Route**
-- Nameing a route
+- Naming a route
 - Routing based on named routes
 - Resourceful Controllers
 - Route groups

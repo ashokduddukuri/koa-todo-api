@@ -1,11 +1,22 @@
 const Router = require('koa-router');
-const router = new Router();
 var todo = require('./controllers/todoController');
-
-router.get('/todo', todo.get);
-router.put('/todo', todo.put);
-router.post('/todo', todo.post);
-router.delete('/todo', todo.delete);
+var logger = require("./http/middlewares/log");
+var justsayHi = require("./http/middlewares/justsayHi");
 
 
-module.exports = router;
+const group1 = new Router();
+group1.use(logger());
+group1.get('gettodos', '/todo', todo.get).use(logger());
+group1.put('/todo', todo.put);
+
+
+const group2 = new Router();
+group2.use(justsayHi());
+group2.post('alltodos', '/todo', todo.post);
+group2.delete('/todo', todo.delete);
+
+
+module.exports = {
+    group1,
+    group2
+};

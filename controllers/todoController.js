@@ -1,4 +1,6 @@
 const todoModel = require("../models/todo");
+const Router = require('koa-router');
+const router = new Router();
 
 class Todo {
     async get(ctx) {
@@ -27,7 +29,6 @@ class Todo {
 
     async post(ctx) {
         const body = ctx.request.body;
-        console.log(body);
         try {
             var data = new todoModel(body);
             await data.save();
@@ -38,10 +39,11 @@ class Todo {
     }
     async delete(ctx) {
         const body = ctx.request.body;
-        console.log(body);
+        console.log(ctx.router);
         try {
             await todoModel.findByIdAndRemove(body._id).exec();
-            ctx.body = body;
+            ctx.redirect(ctx.router.url('alltodos'));
+            // ctx.body = "hi";
         } catch (error) {
             console.log(error.message);
         }
