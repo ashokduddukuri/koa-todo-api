@@ -15,3 +15,8 @@
 ------------
 > **Have Models**
 - Schema Info
+- Migrations, Seeders and Factories
+------------
+> **Components**
+Error Logging
+Testing framework
